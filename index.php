@@ -16,7 +16,7 @@
         <nav>
             <a href="#home" class="logo">
                 <img src="image/logo.png" alt="FLEXCEE Tech Logo">
-                <span>Tech</span>
+                <!-- <span>Tech</span> -->
             </a>
             <button class="menu-toggle" aria-label="Open menu">&#9776;</button>
             <ul>
@@ -274,10 +274,10 @@
                 <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook">https://www.facebook.com/flexceetech/</i></a>
+                        <a href="#"><i class="fab fa-twitter">https://twitter.com/flexceetech</i></a>
+                        <a href="#"><i class="fab fa-linkedin">https://www.linkedin.com/in/collinsezih/</i></a>
+                        <a href="#"><i class="fab fa-instagram">https://www.instagram.com/flexceetech/</i></a>
                     </div>
                 </div>
             </div>
