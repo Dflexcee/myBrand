@@ -1,6 +1,6 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS flexcee_db;
-USE flexcee_db;
+CREATE DATABASE IF NOT EXISTS flexcee;
+USE flexcee;
 
 -- Create users table for admin login
 CREATE TABLE IF NOT EXISTS users (

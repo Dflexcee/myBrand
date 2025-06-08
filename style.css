@@ -114,6 +114,7 @@ nav ul li a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 2px solid red; /* Temporary border for debugging */
 }
 
 .hero::before {
@@ -132,16 +133,22 @@ nav ul li a:hover::after {
 
 .hero-content {
     position: relative;
-    z-index: 1;
-    max-width: 900px;
+    z-index: 10; /* Increased z-index */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 3rem;
+    padding: 2rem;
     border-radius: 20px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid blue; /* Temporary border for debugging */
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     animation: fadeInUp 1s ease-out;
+    text-align: center;
+    min-height: 150px; /* Ensure minimum height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero h1 {
@@ -160,7 +167,7 @@ nav ul li a:hover::after {
 
 .hero p {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem; /* Increased margin to push button down */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     animation: slideInUp 1s ease-out 0.3s both;
     font-weight: 500;
@@ -851,6 +858,41 @@ body.dark-mode .section h2 {
     color: #ccc;
 }
 
+/* Payment Methods Section */
+.payment-methods {
+    text-align: center;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.payment-methods h4 {
+    margin-bottom: 1rem;
+    color: var(--white);
+    font-size: 1.2rem;
+}
+
+.payment-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.payment-icons img {
+    transition: transform 0.3s ease;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+}
+
+.payment-icons img:hover {
+    transform: translateY(-3px);
+    opacity: 1;
+}
+
 /* Smooth Scrolling */
 html {
     scroll-behavior: smooth;
@@ -906,4 +948,93 @@ body.dark-mode .form-group select {
     .social-links {
         justify-content: center;
     }
+}
+
+/* Enhanced CTA Button */
+.cta-button {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.8rem;
+    background: linear-gradient(45deg, #f1d91e, #e40976);
+    color: white !important;
+    padding: 1rem 2rem !important;
+    border-radius: 50px;
+    text-decoration: none !important;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-top: 0 !important; /* Remove specific margin-top if hero-content is flex column */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(228, 9, 118, 0.3);
+    position: relative;
+    overflow: hidden;
+    z-index: 11; /* Ensure button is above hero-content if needed */
+    border: 2px solid green; /* Temporary border for debugging */
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(228, 9, 118, 0.4);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:active {
+    transform: translateY(-1px);
+}
+
+.cta-icon {
+    font-size: 1.4rem;
+    animation: bounce 2s infinite;
+}
+
+.cta-text {
+    letter-spacing: 0.5px;
+}
+
+.cta-arrow {
+    font-size: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-arrow {
+    transform: translateX(5px);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Dark mode styles for CTA button */
+body.dark-mode .cta-button {
+    box-shadow: 0 4px 15px rgba(228, 9, 118, 0.4);
+}
+
+body.dark-mode .cta-button:hover {
+    box-shadow: 0 6px 20px rgba(228, 9, 118, 0.5);
 }

@@ -1,6 +1,8 @@
 <?php
 // index.php
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +12,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+ <!-- SOCIAL MEDIA PIXEL -->
+    <!-- 📊 Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXX');
+</script>
+
+<!-- 🎯 Facebook Pixel -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3896289297056000'); 
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3896289297056000&ev=PageView&noscript=1"
+/></noscript>
+<!-- SOCIAL MEDIA PIXEL ENDED.  -->
+
 </head>
 <body>
     <header id="home">
@@ -33,7 +63,11 @@
             <div class="hero-content">
                 <h1 class="slide-title">We Build & Manage Stunning Websites</h1>
                 <p class="slide-subtitle">Specialized in Shopify, WordPress, React & Custom Web Apps</p>
-                <a href="#services" class="btn">Explore Our Services</a>
+                <a href="#contact" class="cta-button">
+                    <span class="cta-icon">💬</span>
+                    <span class="cta-text">Chat with Our Team</span>
+                    <span class="cta-arrow">→</span>
+                </a>
             </div>
         </section>
     </header>
@@ -41,7 +75,7 @@
     <section id="about" class="section animate-on-scroll">
         <h2>About FLEXCEE Tech</h2>
         <div class="about-content">
-            <p>FLEXCEE Tech is a leading web technology company that specializes in creating high-performance websites and providing comprehensive IT training. With a global presence spanning the US, UK, Europe, and Africa, we've established ourselves as a trusted partner for businesses seeking digital transformation.</p>
+            <p>FLEXCEE Tech is a leading web technology Agency that specializes in creating high-performance websites and providing comprehensive IT training. With a global presence spanning the US, UK, Europe, and Africa, we've established ourselves as a trusted partner for businesses seeking digital transformation.</p>
             <div class="about-stats">
                 <div class="stat-item">
                     <i class="fas fa-globe"></i>
@@ -274,19 +308,28 @@
                 <div class="footer-section">
                     <h4>Connect With Us</h4>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook">https://www.facebook.com/flexceetech/</i></a>
-                        <a href="#"><i class="fab fa-twitter">https://twitter.com/flexceetech</i></a>
-                        <a href="#"><i class="fab fa-linkedin">https://www.linkedin.com/in/collinsezih/</i></a>
-                        <a href="#"><i class="fab fa-instagram">https://www.instagram.com/flexceetech/</i></a>
+                        <a href="https://www.facebook.com/flexceetech/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com/flexceetech/"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/collinsezih/"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/flexceetech/"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+            </div>
+            <div class="footer-section payment-methods">
+                <h4>Payment Methods</h4>
+                <div class="payment-icons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/200px-PayPal.svg.png" alt="PayPal" style="height:30px; margin-right:10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Visa_Logo.png/200px-Visa_Logo.png" alt="Visa" style="height:30px; margin-right:10px;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Mastercard-logo.png/200px-Mastercard-logo.png" alt="MasterCard" style="height:30px;">
+                </div>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #ccc;">Secure checkout powered by Stripe & PayPal</p>
             </div>
             <p class="copyright">&copy; <?= date('Y') ?> FLEXCEE Tech. All rights reserved.</p>
         </div>
     </footer>
 
     <a href="#home" id="scrollToTop" title="Back to Top"><i class="fas fa-arrow-up"></i></a>
-    <a href="https://wa.me/15022345880" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="https://wa.me/message/" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

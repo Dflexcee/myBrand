@@ -29,17 +29,22 @@ if (scrollBtn) {
 // Hero Slider
 const heroSlides = [
     {
+        title: "🚀 Build Your Website in 72 Hours",
+        subtitle: "For business owners in the U.S., UK & beyond — Shopify, WordPress & custom solutions.",
+        image: "https://images.unsplash.com/photo-1543269865-cbf427effbad"
+    },
+    {
         title: "We Build & Manage Stunning Websites",
         subtitle: "Specialized in Shopify, WordPress, React & Custom Web Apps",
         image: "https://images.unsplash.com/photo-1543269865-cbf427effbad"
     },
+    // {
+    //     title: "Expert IT Training & Development",
+    //     subtitle: "Learn from Industry Professionals",
+    //     image: "https://images.unsplash.com/photo-1521791136064-7986c2920216"
+    // },
     {
-        title: "Expert IT Training & Development",
-        subtitle: "Learn from Industry Professionals",
-        image: "https://images.unsplash.com/photo-1521791136064-7986c2920216"
-    },
-    {
-        title: "Custom Web Solutions",
+        title: "Custom Web Solutions with 48hrs Delivery",
         subtitle: "Tailored to Your Business Needs",
         image: "https://images.unsplash.com/photo-1551434678-e076c223a692"
     }
@@ -62,7 +67,11 @@ function updateSlide() {
         heroContent.innerHTML = `
             <h1 class="slide-title">${slide.title}</h1>
             <p class="slide-subtitle">${slide.subtitle}</p>
-            <a href="#services" class="btn">Explore Our Services</a>
+            <a href="#contact" class="cta-button">
+                <span class="cta-icon">💬</span>
+                <span class="cta-text">Chat with Our Team</span>
+                <span class="cta-arrow">→</span>
+            </a>
         `;
         
         // Add fade-in animation
@@ -201,3 +210,52 @@ window.addEventListener('load', () => {
     heroContent.style.opacity = '1';
     heroContent.style.transform = 'translateY(0)';
 });
+
+// Contact form handler (robust, prevents double submit)
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    let isSubmitting = false;
+    contactForm.onsubmit = function(e) {
+        e.preventDefault();
+        fbq('track', 'Lead'); // 🟣 Fire Facebook 'Lead' event
+        if (isSubmitting) return false;
+        isSubmitting = true;
+        const form = this;
+        const formMessage = form.querySelector('.form-message');
+        const submitBtn = form.querySelector('button[type="submit"]');
+        form.classList.add('form-loading');
+        submitBtn.disabled = true;
+        formMessage.textContent = '';
+        formMessage.style.display = 'none';
+        // Get form data
+        const formData = new FormData(form);
+        fetch('process_contact.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            form.classList.remove('form-loading');
+            submitBtn.disabled = false;
+            isSubmitting = false;
+            formMessage.textContent = data.message || 'Thank you for your message!';
+            formMessage.className = 'form-message ' + (data.success ? 'success' : 'error');
+            formMessage.style.display = 'block';
+            if (data.success) {
+                form.reset();
+            }
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        })
+        .catch(error => {
+            form.classList.remove('form-loading');
+            submitBtn.disabled = false;
+            isSubmitting = false;
+            formMessage.textContent = 'Sorry, there was an error sending your message. Please try again later.';
+            formMessage.className = 'form-message error';
+            formMessage.style.display = 'block';
+        });
+        return false;
+    };
+}
